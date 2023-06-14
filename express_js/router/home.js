@@ -1,8 +1,8 @@
 const express = require('express')
-const router = express.Router()
+const router12 = express.Router()
 
-router.get('/',(req,res)=>{
+router12.get('/',(req,res)=>{
     res.send("Welcome to Home page")
 })
 
-module.exports=router
+module.exports=router12
