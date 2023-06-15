@@ -1,0 +1,12 @@
+const express=require('express')
+const path = require('path')
+const app = express()
+const bodyparser = require('body-parser')
+const admin = require('./router/admin')
+const home = require('./router/home')
+
+app.use(bodyparser.urlencoded({extended:false}))
+app.use(admin)
+app.use(home)
+app.use((req,res)=>{res.status(404).sendFile(path.join(__dirname,'views','error.html'))})
+app.listen(9000)
