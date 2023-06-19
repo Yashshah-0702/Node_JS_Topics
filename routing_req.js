@@ -13,7 +13,7 @@ const server = http.createServer((req,res)=>{
     res.write("<html>")
     res.write("<head><title>My First Page</title></head>")
     res.write("<body><h1>Welcome To Home Page</h1></body>")
-    res.write("</html>") 
+    res.write("</html>")
     res.end()
 })
 server.listen(7000);
