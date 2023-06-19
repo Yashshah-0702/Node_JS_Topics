@@ -6,7 +6,7 @@ const admin = require('./router/admin')
 const home = require('./router/home')
 
 app.use(bodyparser.urlencoded({extended:false}))
-app.use(admin)
+app.use(admin.routes)
 app.use(home)
 app.use((req,res)=>{res.status(404).sendFile(path.join(__dirname,'views','error.html'))})
 app.listen(9000)
