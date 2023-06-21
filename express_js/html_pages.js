@@ -5,6 +5,8 @@ const bodyparser = require('body-parser')
 const admin = require('./router/admin')
 const home = require('./router/home')
 
+app.set('view engine','pug')
+app.set('views','views')
 app.use(bodyparser.urlencoded({extended:false}))
 app.use(admin.routes)
 app.use(home)
