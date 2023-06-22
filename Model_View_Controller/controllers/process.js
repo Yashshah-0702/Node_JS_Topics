@@ -1,14 +1,18 @@
+const products = require('../model/models')
+
 exports.form = (req,res)=>{
     res.render('form')
 }
 
 
-const product = []
 exports.process = (req,res)=>{
     res.redirect('/users')
-    product.push({title:req.body.title})
+    const Pro = new products(req.body.title)
+    Pro.save()
 }
 
 exports.output = (req,res)=>{
+    const product = products.fetchAll()
     res.render('user',{product})
+    console.log(product)
 }
