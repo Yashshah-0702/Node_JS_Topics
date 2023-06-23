@@ -7,12 +7,12 @@ exports.form = (req,res)=>{
 
 exports.process = (req,res)=>{
     res.redirect('/users')
-    const Pro = new products(req.body.title)
+    const Pro = new products(req.body.title,req.body.name)
     Pro.save()
 }
 
 exports.output = (req,res)=>{
-    const product = products.fetchAll()
-    res.render('user',{product})
-    console.log(product)
+    products.fetchAll((product)=>{res.render('user',{product})
+    console.log(product)})
+    
 }

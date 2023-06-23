@@ -3,8 +3,9 @@ const path = require('path')
 
 module.exports=class Product{
 
-    constructor(t){
+    constructor(t,n){
         this.title = t
+        this.name = n
     }
 
     save(){
@@ -20,15 +21,15 @@ module.exports=class Product{
         // product.push(this)
     }
 
-    static fetchAll(){
+    static fetchAll(cb){
         const p = path.join(path.dirname(process.mainModule.filename),'data','products.json')
         fs.readFile(p,(err,fileContent)=>{
             if(err){
-                return []
+                cb([])
             }
-            return JSON.parse(fileContent)
+            cb(JSON.parse(fileContent)) 
         })
-        return product
+        // return product
     }
 }
 
